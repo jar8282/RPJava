@@ -1,5 +1,5 @@
 package main.player.discipline;
 
-public class warrior extends discipline{
+public class warrior extends Discipline{
   
 }

@@ -1,7 +1,7 @@
 package main.enemy.types;
 
-import main.enemy.enemy;
+import main.enemy.Enemy;
 
-public class goblin extends enemy{
+public class goblin extends Enemy{
   
 }
