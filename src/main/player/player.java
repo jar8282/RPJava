@@ -42,15 +42,19 @@ public class Player {
   //DAMAGE:
 
   public int attack(){
-    return Str;
+    return this.Str;
   }
 
   public int specialAttack(){
     return discipline.getSpecial();
   }
 
+  public void heal(int hp){
+    this.health += hp;
+  }
+
   public void takeDamage(int damage){
-    health -= damage;
+    this.health -= damage;
   }
 
   public boolean isDead(){
