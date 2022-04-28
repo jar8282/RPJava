@@ -7,6 +7,7 @@ public class Player {
   private int health;
   private Discipline discipline;
   private Item[] bag;
+  private int gold;
   private int xp;
   private int xpThresh;   //Threshold for leveling up
   private int Str;    //Strength of the character
@@ -27,6 +28,14 @@ public class Player {
     return this.name;
   }
  
+  public void addGold(int amount){
+    this.gold += amount;
+  }
+
+  public void spendGold(int amount){
+    
+  }
+
   public int getStr(){
     return this.Str;
   }
