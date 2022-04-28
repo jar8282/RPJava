@@ -18,7 +18,15 @@ public class Player {
   public Player(String name, Discipline discipline){
     this.name = name;
     this.xp = 0;
+    this.xpThresh = 100;
+    this.gold = 0;
     this.bag = new Item[4];
+    this.discipline = discipline;
+
+    //discipline setters:
+    this.Str = discipline.getStr();
+    this.Dex = discipline.getDex();
+    this.Int = discipline.getInt();
 
   }
 
@@ -32,7 +40,14 @@ public class Player {
     this.gold += amount;
   }
 
-  public void spendGold(int amount){
+  public boolean spendGold(int amount){
+    if(amount > this.gold){
+      return false;
+    }
+    else{
+      this.gold -= amount;
+      return true;
+    }
     
   }
 
