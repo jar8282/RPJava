@@ -1,23 +1,20 @@
 package main.player.discipline;
 
-public abstract class Discipline {
+public abstract class discipline {
 
-  private int baseStr;
-  private int baseDex;
-  private int baseInt;
-
+  //Class special attack
   public abstract int getSpecial();
 
-  public int getStr() {
-    return this.baseStr;
-  }
 
-  public int getDex() {
-    return this.baseDex;
-  }
+  //init for player base stats//
 
-  public int getInt() {
-    return this.baseInt;
-  }
+  public abstract int getStr();
+
+  public abstract int getDex();
+
+  public abstract int getInt();
+
+
+  public abstract String getName();
   
 }

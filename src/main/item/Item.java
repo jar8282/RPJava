@@ -1,5 +1,5 @@
 package main.item;
 
-public abstract class Item {
+public abstract class item {
   
 }

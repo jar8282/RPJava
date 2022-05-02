@@ -1,10 +1,11 @@
 package main.player.discipline;
 
-public class warrior extends discipline{
-  //class initial modifiers
-  private int Str = 2;
-  private int Dex = 1;
-  private int Int = 0;
+public class mage extends discipline {
+    //class initial modifiers
+    private int Str = 0;
+    private int Dex = 1;
+    private int Int = 2;
+  
 
   @Override
   public int getSpecial() {
@@ -29,7 +30,7 @@ public class warrior extends discipline{
 
   @Override
   public String getName() {
-    return "warrior";
+    return "mage";
   }
   
 }

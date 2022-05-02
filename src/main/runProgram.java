@@ -1,17 +1,43 @@
 package main;
-import main.player.Player;
+import java.util.Scanner;
+
+import main.player.player;
+import main.player.discipline.*;
 import main.room.Room;
 
 /**
  * runProgram
  */
 public class runProgram {
-  private static Player player;
+  private static player player;
   private static int roomNum;
   private static int level;
 
-  private static Player initPlayer(){
-    return new Player(null, null);
+  private static void initPlayer(){
+    String name;
+    discipline discipline;
+    //get info from user
+    System.out.println("---Welcome to RPJAVA---\n");
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Brave new hero - what is your name?");
+    name = scanner.next();
+    System.out.println(name + ", what is your discipline?\n(type 'w' for warrior, 'm' for mage)");
+    String disc = scanner.next();
+    disc.toLowerCase();
+
+    if(disc.equals("w")){
+      discipline = new warrior();
+    }
+    else {
+      discipline = new mage();
+    }
+
+    System.out.println(name + " the " + discipline.getName() + " - it is time to start your adventure. . . ");
+    
+    player = new player(name, discipline);
+  
+    return;
   }
 
   
@@ -35,7 +61,7 @@ public class runProgram {
     boolean continueGame = true;
     roomNum = 0;
     level = 0;
-    player = initPlayer();
+    initPlayer();
 
     while(continueGame){
       if(roomNum < 10){

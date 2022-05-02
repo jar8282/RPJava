@@ -1,12 +1,12 @@
 package main.player;
-import main.item.Item;
-import main.player.discipline.Discipline;
+import main.item.item;
+import main.player.discipline.discipline;
 
-public class Player {
+public class player {
   private String name;
   private int health;
-  private Discipline discipline;
-  private Item[] bag;
+  private discipline discipline;
+  private item[] bag;
   private int gold;
   private int xp;
   private int xpThresh;   //Threshold for leveling up
@@ -15,12 +15,12 @@ public class Player {
   private int Int;    //Intelligence of the Player
 
 
-  public Player(String name, Discipline discipline){
+  public player(String name, discipline discipline){
     this.name = name;
     this.xp = 0;
     this.xpThresh = 100;
     this.gold = 0;
-    this.bag = new Item[4];
+    this.bag = new item[4];
     this.discipline = discipline;
 
     //discipline setters:
@@ -70,7 +70,7 @@ public class Player {
   }
 
   public int specialAttack(){
-    return discipline.getSpecial();
+    return this.discipline.getSpecial();
   }
 
   public void heal(int hp){
@@ -102,10 +102,10 @@ public class Player {
   
   //BAG/ITEMS:
 
-  public Item getItem(int location){
+  public item getItem(int location){
     //adjust later so i can get item based on item name
     if(location < bag.length){
-      Item item = bag[location];
+      item item = bag[location];
       bag[location] = null;
       return item;
     }
@@ -115,7 +115,7 @@ public class Player {
     }
   }
 
-  public boolean addItem(Item item) {
+  public boolean addItem(item item) {
     for(int i = 0; i < bag.length; i++){
       if(bag[i] == null){
         bag[i] = item;
