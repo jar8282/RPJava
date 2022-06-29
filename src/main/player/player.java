@@ -12,8 +12,9 @@ public class player {
   private int xpThresh;   //Threshold for leveling up
   private int Str;    //Strength of the character
   private int Dex;    //Dexterity of the character
-  private int Int;    //Intelligence of the Player
-
+  private int Int;    //Intelligence of the character
+  private int sp;   //number of special points
+  private int spMax;    //special point max
 
   public player(String name, discipline discipline){
     this.name = name;
@@ -22,6 +23,8 @@ public class player {
     this.gold = 0;
     this.bag = new item[4];
     this.discipline = discipline;
+    this.spMax = 10;
+    this.sp = spMax;
 
     //discipline setters:
     this.Str = discipline.getStr();
@@ -34,21 +37,6 @@ public class player {
 
   public String getName(){
     return this.name;
-  }
- 
-  public void addGold(int amount){
-    this.gold += amount;
-  }
-
-  public boolean spendGold(int amount){
-    if(amount > this.gold){
-      return false;
-    }
-    else{
-      this.gold -= amount;
-      return true;
-    }
-    
   }
 
   public int getStr(){
@@ -63,14 +51,39 @@ public class player {
     return this.Int;
   }
 
+  public int getSP(){
+    return this.sp;
+  }
+
   //DAMAGE:
 
   public int attack(){
     return this.Str;
   }
 
+  public String getFlavor(){
+    return this.discipline.getFlavorText();
+  }
+
   public int specialAttack(){
-    return this.discipline.getSpecial();
+    if(this.sp >= 1){
+      sp--;
+      return this.discipline.getSpecial();
+    }
+    //not enough SP (sp)
+    //return error message/mvp thing from class??
+    return 0;
+  }
+
+  public String getSpecialFlavor(){
+    return this.discipline.getSpecialFlavorText();
+  }
+
+  public void regenSP(int sp){
+    this.sp += sp;
+    if(this.sp > this.spMax){
+      this.sp = this.spMax;
+    }
   }
 
   public void heal(int hp){
@@ -97,6 +110,8 @@ public class player {
   private void levelUp(){
     this.xpThresh *= 2;
     this.xp = 0;
+
+    this.spMax += 2;
     //need to add leveling up feature
   }
   
@@ -125,4 +140,19 @@ public class player {
     return false;
   }
 
+  public void addGold(int amount){
+    this.gold += amount;
+  }
+
+  public boolean spendGold(int amount){
+    if(amount > this.gold){
+      return false;
+    }
+    else{
+      this.gold -= amount;
+      return true;
+    }
+    
+  }
+  
 }

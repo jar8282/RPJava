@@ -36,7 +36,7 @@ public class runProgram {
     System.out.println(name + " the " + discipline.getName() + " - it is time to start your adventure. . . ");
     
     player = new player(name, discipline);
-  
+    scanner.close();
     return;
   }
 

@@ -7,9 +7,19 @@ public class warrior extends discipline{
   private int Int = 0;
 
   @Override
+  public String getFlavorText() {
+    return "You swing your sword!";
+  }
+
+  @Override
   public int getSpecial() {
     // TODO Auto-generated method stub
     return 0;
+  }
+
+  @Override
+  public String getSpecialFlavorText() {
+    return "Special Attack!!";
   }
 
   @Override
@@ -31,5 +41,6 @@ public class warrior extends discipline{
   public String getName() {
     return "warrior";
   }
+
   
 }
